@@ -10,8 +10,6 @@ install:
   # ----------------------------------------
   - mesa-dri-drivers
   - mesa-vulkan-drivers
-  - mesa-va-drivers
-  - mesa-vdpau-drivers
   - mesa-libGL
   - mesa-libEGL
   - mesa-libgbm
@@ -29,17 +27,14 @@ install:
   - radeontop
   
   # Xorg AMD driver (fallback from Wayland)
-  - xorg-x11-drv-amdgpu
   
   # ----------------------------------------
   # Firmware (AMD + common WiFi/BT)
   # ----------------------------------------
   - linux-firmware
-  - amd-gpu-firmware
   
   # Intel WiFi (common in Lenovo laptops)
   - iwl7260-firmware
-  - iwlax2xx-firmware
   - iwl100-firmware
   - iwl1000-firmware
   - iwl105-firmware
@@ -47,11 +42,8 @@ install:
   - iwl2000-firmware
   - iwl2030-firmware
   - iwl3160-firmware
-  - iwl3945-firmware
-  - iwl4965-firmware
   - iwl5000-firmware
   - iwl5150-firmware
-  - iwl6000-firmware
   - iwl6000g2a-firmware
   - iwl6000g2b-firmware
   - iwl6050-firmware
@@ -72,7 +64,6 @@ install:
   
   # Bluetooth
   - bluez
-  - bluez-tools
   - bluez-obexd
   
   # ----------------------------------------
