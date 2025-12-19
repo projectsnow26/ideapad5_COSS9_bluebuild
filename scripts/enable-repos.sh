@@ -9,7 +9,6 @@ dnf config-manager --set-enabled crb || true
 echo "==> Installing EPEL release packages..."
 dnf -y install \
     https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm \
-    https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-9.noarch.rpm \
     || true
 
 # NOTE: Budgie COPR repos removed - they do NOT support CentOS Stream 9
