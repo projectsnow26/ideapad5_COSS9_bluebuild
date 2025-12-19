@@ -1,0 +1,89 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+---
+# GNOME 40 from CentOS Stream 9 base
+# Clean, opinionated desktop - VERIFIED for CentOS Stream 9
+# This is the MOST RELIABLE desktop choice for CS9 as GNOME ships in base repos
+
+modules:
+  - type: rpm-ostree
+    install:
+      # ----------------------------------------
+      # GNOME Core (from CentOS AppStream)
+      # ----------------------------------------
+      - gnome-shell
+      - gnome-session
+      - gnome-session-wayland-session
+      - gnome-session-xsession
+      - gnome-settings-daemon
+      - gnome-control-center
+      - gnome-tweaks
+      - gnome-shell-extension-appindicator
+      # Note: dash-to-dock may need EPEL or COPR
+      
+      # ----------------------------------------
+      # Display Manager
+      # ----------------------------------------
+      - gdm
+      
+      # ----------------------------------------
+      # GNOME Applications (from base repos)
+      # ----------------------------------------
+      - gnome-terminal
+      - nautilus
+      - gnome-system-monitor
+      - gnome-disk-utility
+      - gnome-calculator
+      - gnome-font-viewer
+      - gnome-screenshot
+      - gnome-characters
+      - gnome-logs
+      - file-roller
+      - evince
+      - eog
+      - gedit
+      - baobab
+      
+      # ----------------------------------------
+      # Display server
+      # ----------------------------------------
+      - xorg-x11-server-Xorg
+      - xorg-x11-xinit
+      - xdg-utils
+      - xdg-user-dirs
+      - xdg-user-dirs-gtk
+      - xdg-desktop-portal
+      - xdg-desktop-portal-gnome
+      - xdg-desktop-portal-gtk
+      
+      # ----------------------------------------
+      # GNOME Theming (from base repos)
+      # ----------------------------------------
+      - adwaita-gtk2-theme
+      - adwaita-icon-theme
+      - adwaita-cursor-theme
+      - gnome-themes-extra
+      
+      # ----------------------------------------
+      # Fonts (verified in base/EPEL)
+      # ----------------------------------------
+      - dejavu-sans-fonts
+      - dejavu-serif-fonts
+      - dejavu-sans-mono-fonts
+      - liberation-fonts
+      - google-noto-sans-fonts
+      - google-noto-serif-fonts
+      - google-noto-emoji-fonts
+      - fontconfig
+      
+      # ----------------------------------------
+      # Bluetooth (gnome-bluetooth included with gnome-shell)
+      # ----------------------------------------
+
+  - type: systemd
+    system:
+      enabled:
+        - gdm
+
+  - type: script
+    scripts:
+      - set-graphical-target.sh

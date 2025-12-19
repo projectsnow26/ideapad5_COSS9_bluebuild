@@ -1,0 +1,120 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+---
+# XFCE Desktop Environment from EPEL 9
+# Lightweight, traditional desktop - VERIFIED for CentOS Stream 9
+# 
+# Removed unavailable packages:
+#   - greybird-* themes (Fedora only, not in EPEL)
+#   - arc-theme (EPEL 7 only, dropped from EPEL 8+)
+#   - blueman (Fedora only, not in EPEL)
+
+modules:
+  - type: rpm-ostree
+    install:
+      # ----------------------------------------
+      # XFCE Core (from EPEL 9)
+      # ----------------------------------------
+      - xfce4-panel
+      - xfce4-session
+      - xfce4-settings
+      - xfdesktop
+      - xfwm4
+      - xfce4-appfinder
+      - xfce4-power-manager
+      - xfce4-notifyd
+      - xfce4-screensaver
+      
+      # ----------------------------------------
+      # XFCE Applications (from EPEL 9)
+      # ----------------------------------------
+      - Thunar
+      - thunar-volman
+      - thunar-archive-plugin
+      - tumbler
+      - xfce4-terminal
+      - mousepad
+      - ristretto
+      - parole
+      - xfburn
+      
+      # ----------------------------------------
+      # XFCE Plugins (panel) - from EPEL 9
+      # ----------------------------------------
+      - xfce4-whiskermenu-plugin
+      - xfce4-pulseaudio-plugin
+      - xfce4-clipman-plugin
+      - xfce4-screenshooter-plugin
+      - xfce4-taskmanager
+      - xfce4-systemload-plugin
+      - xfce4-cpugraph-plugin
+      - xfce4-netload-plugin
+      - xfce4-battery-plugin
+      - xfce4-datetime-plugin
+      - xfce4-weather-plugin
+      
+      # ----------------------------------------
+      # Display Manager (from EPEL 9)
+      # ----------------------------------------
+      - lightdm
+      - lightdm-gtk
+      - lightdm-gtk-greeter-settings
+      
+      # ----------------------------------------
+      # Xorg (from base repos)
+      # ----------------------------------------
+      - xorg-x11-server-Xorg
+      - xorg-x11-xinit
+      - xorg-x11-utils
+      - xorg-x11-xauth
+      - xorg-x11-fonts-Type1
+      - xorg-x11-fonts-misc
+      - xdg-utils
+      - xdg-user-dirs
+      - xdg-user-dirs-gtk
+      
+      # ----------------------------------------
+      # GTK Theming (VERIFIED available in EPEL 9 or base)
+      # ----------------------------------------
+      - adwaita-gtk2-theme
+      - adwaita-icon-theme
+      # papirus-icon-theme IS in EPEL 9
+      - papirus-icon-theme
+      # NOTE: arc-theme and greybird themes are NOT in EPEL 9
+      # Using Adwaita as fallback
+      
+      # ----------------------------------------
+      # Fonts (verified in base/EPEL)
+      # ----------------------------------------
+      - dejavu-sans-fonts
+      - dejavu-serif-fonts
+      - dejavu-sans-mono-fonts
+      - liberation-fonts
+      - google-noto-sans-fonts
+      - google-noto-serif-fonts
+      - google-noto-emoji-fonts
+      - fontconfig
+      
+      # ----------------------------------------
+      # Common GTK apps (verified available)
+      # ----------------------------------------
+      - gnome-disk-utility
+      - gnome-system-monitor
+      - file-roller
+      - evince
+      - eog
+      - gnome-calculator
+      - gnome-font-viewer
+      - network-manager-applet
+      - nm-connection-editor
+      - pavucontrol
+      # NOTE: blueman is NOT in EPEL 9 - use gnome-bluetooth or bluedevil
+      - gparted
+
+  - type: systemd
+    system:
+      enabled:
+        - lightdm
+
+  - type: script
+    scripts:
+      - set-graphical-target.sh

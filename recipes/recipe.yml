@@ -2,19 +2,19 @@
 ---
 # BlueBuild Recipe for CentOS Stream 9 - Lenovo AMD Laptops
 # Target: Lenovo IdeaPad 5 15ALC05 (AMD Ryzen 5500U)
-# DE: Budgie (swap to other DEs by changing the desktop include)
+# DE: KDE Plasma 5.27 LTS (from EPEL 9)
 #
 # Build: bluebuild build ./recipes/recipe.yml
 
-name: centos9-ideapad5-server
-description: CentOS Stream 9 Budgie Desktop for Lenovo IdeaPad 5 15ALC05
+name: centos9-ideapad5-plasma
+description: CentOS Stream 9 KDE Plasma Desktop for Lenovo IdeaPad 5 15ALC05
 
 base-image: quay.io/centos-bootc/centos-bootc
 image-version: stream9
 
 modules:
   # ========================================
-  # BASE SYSTEM (shared across all variants)
+  # BASE SYSTEM
   # ========================================
   - from-file: base-repos.yml
 
@@ -29,14 +29,13 @@ modules:
   - from-file: power-management.yml
 
   # ========================================
-  # DESKTOP ENVIRONMENT
-  # Swap this line to change DE:
-  #   desktop-xfce.yml    <- lightweight
-  #   desktop-plasma.yml  <- full-featured
-  #   desktop-gnome.yml   <- modern
-  #   desktop-budgie.yml  <- clean/modern (current)
+  # DESKTOP ENVIRONMENT - KDE Plasma
+  # Available options for CentOS Stream 9:
+  #   desktop-plasma-fixed.yml  <- KDE Plasma 5.27 (EPEL 9) - CURRENT
+  #   desktop-gnome-fixed.yml   <- GNOME 40 (base repos)
+  #   desktop-xfce-fixed.yml    <- XFCE (EPEL 9) - lightweight
   # ========================================
-  - from-file: desktop-budgie.yml
+  - from-file: desktop-plasma-fixed.yml
 
   # ========================================
   # APPLICATIONS & TOOLS

@@ -1,0 +1,129 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+---
+# KDE Plasma 5.27 LTS from EPEL 9
+# Full-featured desktop for daily driver use
+# VERIFIED for CentOS Stream 9 + EPEL 9
+#
+# Note: EPEL 9 KDE is frozen at 5.27.x with security backports only
+# (newer KDE versions require libraries not available in RHEL 9)
+
+modules:
+  - type: rpm-ostree
+    install:
+      # ----------------------------------------
+      # Plasma Core (EPEL 9)
+      # ----------------------------------------
+      - plasma-desktop
+      - plasma-workspace
+      - plasma-nm
+      - plasma-pa
+      - plasma-systemmonitor
+      - plasma-discover
+      - plasma-discover-notifier
+      - plasma-drkonqi
+      - plasma-milou
+      
+      # ----------------------------------------
+      # KDE Frameworks (EPEL 9)
+      # ----------------------------------------
+      - kf5-kirigami2
+      - kf5-kio
+      - kf5-knotifications
+      
+      # ----------------------------------------
+      # KDE System (EPEL 9)
+      # ----------------------------------------
+      - sddm
+      - sddm-themes
+      - sddm-breeze
+      - kscreen
+      - kwin
+      - kwin-wayland
+      - kwin-x11
+      - khotkeys
+      - kmenuedit
+      - kinfocenter
+      - ksysguard
+      - kde-settings
+      - kde-settings-plasma
+      # Bluetooth - bluedevil is the KDE Bluetooth manager
+      - bluedevil
+      - powerdevil
+      - plasma-thunderbolt
+      - plasma-firewall
+      - plasma-vault
+      - plasma-disks
+      
+      # ----------------------------------------
+      # KDE Applications (EPEL 9)
+      # ----------------------------------------
+      - dolphin
+      - dolphin-plugins
+      - konsole
+      - kate
+      - ark
+      - okular
+      - gwenview
+      - spectacle
+      - kcalc
+      - kcharselect
+      - kcolorchooser
+      - kruler
+      - kwalletmanager5
+      - filelight
+      - partitionmanager
+      
+      # ----------------------------------------
+      # Display server (BaseOS/AppStream)
+      # ----------------------------------------
+      - xorg-x11-server-Xorg
+      - xorg-x11-xinit
+      - xorg-x11-utils
+      - xorg-x11-xauth
+      - xdg-utils
+      - xdg-user-dirs
+      - xdg-desktop-portal
+      - xdg-desktop-portal-kde
+      
+      # Wayland support (EPEL 9)
+      - plasma-workspace-wayland
+      - kwayland-integration
+      - qt5-qtwayland
+      
+      # ----------------------------------------
+      # Qt/KDE Theming (EPEL 9)
+      # ----------------------------------------
+      - breeze-icon-theme
+      - breeze-gtk
+      - breeze-cursor-theme
+      - qt5ct
+      # papirus-icon-theme IS available in EPEL 9
+      - papirus-icon-theme
+      
+      # ----------------------------------------
+      # Fonts (BaseOS/EPEL)
+      # ----------------------------------------
+      - dejavu-sans-fonts
+      - dejavu-serif-fonts
+      - dejavu-sans-mono-fonts
+      - liberation-fonts
+      - google-noto-sans-fonts
+      - google-noto-serif-fonts
+      - google-noto-emoji-fonts
+      - fontconfig
+      
+      # ----------------------------------------
+      # Integration packages (EPEL 9)
+      # ----------------------------------------
+      - plasma-browser-integration
+      - kdeplasma-addons
+      - kdeconnect
+
+  - type: systemd
+    system:
+      enabled:
+        - sddm
+
+  - type: script
+    scripts:
+      - set-graphical-target.sh
