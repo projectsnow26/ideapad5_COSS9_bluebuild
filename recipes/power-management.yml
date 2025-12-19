@@ -7,9 +7,6 @@ install:
   # Power profiles (GNOME/KDE integrate with this)
   - power-profiles-daemon
   
-  # Thermal management
-  - thermald
-  
   # ACPI
   - acpid
   

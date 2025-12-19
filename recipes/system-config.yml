@@ -17,7 +17,6 @@ modules:
         
         # Power & thermal
         - power-profiles-daemon
-        - thermald
         - acpid
         
         # Tuned performance profiles

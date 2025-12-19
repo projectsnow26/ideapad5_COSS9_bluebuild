@@ -13,7 +13,7 @@ install:
   - nfs-utils
   - cifs-utils
   - samba-client
-  - fuse-sshfs
+  - sshfs
   
   # DNS tools
   - dnsmasq

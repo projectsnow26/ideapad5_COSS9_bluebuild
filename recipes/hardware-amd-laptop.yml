@@ -58,7 +58,6 @@ install:
   - NetworkManager-openvpn
   - NetworkManager-openconnect
   - wireless-regdb
-  - crda
   - iw
   - wpa_supplicant
   
